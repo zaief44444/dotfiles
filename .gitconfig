@@ -1,0 +1,18 @@
+[user]
+	name = zaief
+	email = zaief.ox@gmail.com
+[push]
+	default = current
+[core]
+	autocrlf = false
+	ignorecase = false
+[color]
+	ui = true
+[alias]
+	st = status
+	df = diff
+	co = commit
+	br = branch
+	ps = push
+	pl = pull
+	ck = checkout
