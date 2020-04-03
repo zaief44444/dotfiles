@@ -75,13 +75,6 @@ on_ft = ['javascript', 'javascript.jsx']
 repo = 'mxw/vim-jsx'
 on_ft = ['javascript', 'javascript.jsx']
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-# nerdtreeを開始時に開く 
-# hook_add = '''
-# autocmd VimEnter * execute 'NERDTree'
-# '''
-
 # tomlのシンタックスカラーリング
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -94,11 +87,3 @@ depends = ['context_filetype.vim']
 [[plugins]] # カーソルの位置のコンテキストのftを判定するライブラリ 
 repo = 'Shougo/context_filetype.vim'
 
-# [[plugins]] # カラースキーマ
-# repo = 'w0ng/vim-hybrid'
-# hook_add = '''
-# set background=dark
-# " colorschme せっていは source 後に行う必要があるので VimEnterで行う
-# " 但し Colorscheme イベントが抑制されないよう nested を付ける 
-# au MyAutoCmd VimEnter * nested colorscheme hybrid
-# '''
