@@ -3,8 +3,7 @@ if &compatible
   set nocompatible
 endif
 
-
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
@@ -71,7 +70,7 @@ nnoremap <silent><ESC><ESC> :nohl<CR>
 "一見意味ないような設定だがcohama/leximal.vimは<BS>を使って設定されているので
 "<C-h>もそれと同じように機能させる. inoremapでなくimapでないと機能しない
 imap <C-h> <BS>
-"()の対応を表示する機能が見づらすぎて死にそうなので切る(terminal上で)
+"()の対応を表示する機能が見づらすぎるので切る
 if !has('gui_running')
   let g:loaded_matchparen = 1
 endif
@@ -86,14 +85,15 @@ imap <3-MiddleMouse> <Nop>
 imap <4-MiddleMouse> <Nop>
 "w!!でsudoで保存
 cabbr w!! w !sudo tee > /dev/null %
-" Swapファイル?Backupファイル?前時代的すぎなので全て無効化する
+" SwapファイルやBackupファイルは前時代的すぎるので無効化する
 set nowritebackup
 set nobackup
 set noswapfile
-" 一文字消すだけなのに無名レジスタを上書きされるのは嫌なのでブラックホールレジスタに入れる
+" 一文字消すだけで無名レジスタを上書きさせないためにブラックホールレジスタに入れる
 nnoremap x "_x
 nnoremap X "_X
 
+" 表示行単位で移動する
 nnoremap j gj
 nnoremap k gk
 
