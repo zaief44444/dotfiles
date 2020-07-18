@@ -36,6 +36,7 @@ function! s:denite_filter_my_settings() abort
   " Deniteを閉じる
   inoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
   nnoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
+
 endfunction
 " Change file/rec command.
 call denite#custom#var('file/rec', 'command',

@@ -3,7 +3,11 @@ if &compatible
   set nocompatible
 endif
 
-let g:python3_host_prog = '/usr/bin/python3'
+if has('mac')
+  let g:python3_host_prog = '/usr/local/bin/python3'
+elseif has('unix')
+  let g:python3_host_prog = '/usr/bin/python3'
+endif
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')

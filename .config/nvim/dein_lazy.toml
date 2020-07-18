@@ -1,4 +1,23 @@
 [[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = ['c', 'cpp', 'h']
+hook_add = '''
+    let g:clang_format#style_options = {
+        \ "BasedOnStyle" : "Google",
+        \ "AccessModifierOffset" : -2,
+        \ "IndentWidth" : 2,
+        \ "TabWidth" : 2,
+        \ "UseTab" : "Never",
+        \ "Standard" : "C++11",
+        \ "ColumnLimit" : 100,
+        \ "AllowShortBlocksOnASingleLine" : "true",
+        \ "AllowShortIfStatementsOnASingleLine" : "true",
+        \ "AllowShortCaseLabelsOnASingleLine" : "true"}
+    let g:clang_format#auto_format = 1
+    autocmd FileType c setlocal sw=2 sts=2 ts=2 et
+'''
+
+[[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 hook_post_source = '''
@@ -22,13 +41,14 @@ hook_source ='''
   let g:deoplete#sources#clang#libclang_path='/usr/local/opt/llvm/lib/libclang.dylib'
   let g:deoplete#sources#clang#clang_header='/usr/local/opt/llvm/lib/clang'
 '''
-on_ft = ['c', 'cpp', 'cmake']
+on_ft = ['c', 'cpp', 'cmake', 'h']
 depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 hook_source = '''
   let g:deoplete#sources#jedi#server_timeout = 20
+  let g:deoplete#sources#jedi#python_path='/usr/local/bin/python3'
 '''
 on_ft = 'python'
 
