@@ -147,3 +147,5 @@ vmap <silent> <expr> p <sid>Repl()
 noremap gV `[v`]
 nnoremap <CR> G
 nnoremap <BS> gg
+
+nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
