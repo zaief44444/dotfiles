@@ -145,3 +145,5 @@ vmap <silent> <expr> p <sid>Repl()
 
 " 貼り付けたテキストを素早く選択する
 noremap gV `[v`]
+nnoremap <CR> G
+nnoremap <BS> gg
