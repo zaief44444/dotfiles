@@ -121,3 +121,8 @@ augroup END
 set tags=./tags;$HOME
 nnoremap <C-]> g<C-]>
 inoremap <C-]> g<C-]>
+
+let mapleader = "\<Space>"
+nnoremap <Leader> :w<CR>
+nnoremap <Leader> :q<CR>
+nmap <Leader><Leader> V
