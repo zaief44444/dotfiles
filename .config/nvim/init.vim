@@ -123,6 +123,6 @@ nnoremap <C-]> g<C-]>
 inoremap <C-]> g<C-]>
 
 let mapleader = "\<Space>"
-nnoremap <Leader> :w<CR>
-nnoremap <Leader> :q<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nmap <Leader><Leader> V
