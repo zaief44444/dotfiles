@@ -1,12 +1,15 @@
 [[plugins]]
 repo = 'rhysd/vim-clang-format'
-on_ft = ['c', 'cpp', 'h']
+on_ft = ['c', 'cpp']
 hook_add = '''
     let g:clang_format#style_options = {
         \ "BasedOnStyle" : "Google"}
     let g:clang_format#auto_format = 1
-    autocmd FileType c setlocal sw=2 sts=2 ts=2 et
-'''
+    autocmd FileType c,cpp,objc map <buffer><Leader>f <Plug>(operator-clang-format)'''
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

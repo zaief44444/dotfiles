@@ -62,6 +62,7 @@ set smartindent
 set clipboard+=unnamedplus
 " 置換がインタラクティブになる
 set inccommand=split
+set nowrapscan
 "makefileの時はtabのままにする
 let _curfile = expand("%:t")
 if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
@@ -116,6 +117,7 @@ augroup BinaryXXD
   autocmd BufWritePost * if &binary | silent %!xxd -g 1
   autocmd BufWritePost * set nomod | endif
 augroup END
+
 " tagsでなく./tagsと指定するとカレントディレクトリではなく開いているファイルのディレクトリからtagsファイルを探す
 " ;$HOMEとすることでホームディレクトリまで遡ってtagsファイルを探してくれる
 set tags=./tags;$HOME
@@ -144,8 +146,12 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " 貼り付けたテキストを素早く選択する
-noremap gV `[v`]
+noremap gv `[v`]
 nnoremap <CR> G
 nnoremap <BS> gg
 
-nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
+" html編集でよく使う置換
+vmap <silent> <Leader><lt> :sno/</&lt/g<CR>
+vmap <silent> <Leader>> :sno/>/&gt/g<CR>
+
+
