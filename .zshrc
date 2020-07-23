@@ -27,7 +27,15 @@ zinit light sindresorhus/pure
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 zinit load zdharma/history-search-multi-word
-source /usr/local/etc/profile.d/z.sh
+case ${OSTYPE} in 
+  darwin*)
+    source /usr/local/etc/profile.d/z.sh
+    ;;
+  linux*)
+    source /usr/share/z/z.sh
+    ;;
+esac
+
 
 export CPATH=$CPATH:$HOME/include
 export LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib
@@ -36,14 +44,28 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib
 alias ll="ls -al"
 setopt autocd
 
-function fzf-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
+function osx-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+function unix-history-selection() {
+    BUFFER=`history -n 1 | tail  | awk '!a[$0]++' | fzf`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
 
-zle -N fzf-history-selection
-bindkey '^R' fzf-history-selection
+
+case ${OSTYPE} in 
+  darwin*)
+    zle -N osx-history-selection
+    bindkey '^R' osx-history-selection
+    ;;
+  linux*)
+    zle -N unix-history-selection
+    bindkey '^R' unix-history-selection
+    ;;
+esac
 
 function my_edit_func() {
     if [[ "${RBUFFER:0:1}" != " " ]]; then

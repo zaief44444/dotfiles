@@ -154,6 +154,6 @@ nnoremap <BS> gg
 vmap <silent> <Leader><lt> :sno/</&lt/g<CR>
 vmap <silent> <Leader>> :sno/>/&gt/g<CR>
 
-let @p="\<ESC>o<pre>\n<code>\n\n<code>\n<pre>\<ESC>kk0"
+let @p="\<ESC>o<pre>\n<code>\n\n</code>\n</pre>\<ESC>kk0"
 let @a="\<ESC>a<a href=\"\"></a>\<ESC>hhhhhh"
 
