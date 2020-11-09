@@ -60,6 +60,8 @@ set hls
 set smarttab
 set smartindent
 set clipboard+=unnamedplus
+" 矩形選択で自由に移動する
+set virtualedit+=block
 " 置換がインタラクティブになる
 set inccommand=split
 set nowrapscan
@@ -101,6 +103,17 @@ nnoremap X "_X
 " 表示行単位で移動する
 nnoremap j gj
 nnoremap k gk
+
+" コマンドラインでカーソル移動
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <C-b>
+
+" コマンドライン履歴を開く 
+cnoremap <C-r> <C-f>
+
+" very magicをデフォルトにする
+nnoremap / /\v
 
 augroup MyAutoCmd
   autocmd!
@@ -146,7 +159,8 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " 貼り付けたテキストを素早く選択する
-noremap gv `[v`]
+nnoremap gv `[v`]
+
 nnoremap <CR> G
 nnoremap <BS> gg
 
@@ -155,5 +169,7 @@ vmap <silent> <Leader><lt> :sno/</&lt/g<CR>
 vmap <silent> <Leader>> :sno/>/&gt/g<CR>
 
 let @p="\<ESC>o<pre>\n<code>\n\n</code>\n</pre>\<ESC>kk0"
-let @a="\<ESC>a<a href=\"\"></a>\<ESC>hhhhhh"
+let @a="\<ESC>a<a href=\"\"></a>\<ESC>hhhhh"
 
+
+autocmd BufNewFile,BufRead *.plit setfiletype xml
