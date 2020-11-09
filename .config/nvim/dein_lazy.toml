@@ -1,4 +1,8 @@
 [[plugins]]
+repo = 'tpops/vim-surround'
+on_i = 1
+
+[[plugins]]
 repo = 'rhysd/vim-clang-format'
 on_ft = ['c', 'cpp']
 hook_add = '''
