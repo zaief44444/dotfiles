@@ -36,6 +36,18 @@ case ${OSTYPE} in
     ;;
 esac
 
+case ${OSTYPE} in 
+  darwin*)
+    export PATH=/usr/local/opt/llvm/bin:$PATH
+    export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$PATH
+    GO111MODULE=on
+    ;;
+  linux*)
+    export PATH=$PATH:/usr/local/gocode/bin/
+    export GOPATH=/usr/local/gocode/
+    ;;
+esac
 
 export CPATH=$CPATH:$HOME/include
 export LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib
