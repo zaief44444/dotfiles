@@ -69,8 +69,12 @@ call denite#custom#option('default', s:denite_default_options)
 '''
 
 [[plugins]]
+repos = 'tpope/vim-repeat'
+
+[[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['javascript', 'javascript.jsx']
+
 
 [[plugins]] # mxwはpanglossと相性がよく,mxwでjsxのxmlシンタックスをカラーリングする
 repo = 'mxw/vim-jsx'
