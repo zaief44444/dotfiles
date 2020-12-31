@@ -46,6 +46,7 @@ case ${OSTYPE} in
   linux*)
     export PATH=$PATH:/usr/local/gocode/bin/
     export GOPATH=/usr/local/gocode/
+    export GOBIN=/usr/local/gocode/bin
     ;;
 esac
 
@@ -114,3 +115,6 @@ function fancy-ctrl-z() {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# go get needs this GIT_TERMINAL_PROMPT=1
+export GIT_TERMINAL_PROMPT=1
