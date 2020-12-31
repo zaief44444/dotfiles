@@ -124,3 +124,5 @@ function fancy-ctrl-z() {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
