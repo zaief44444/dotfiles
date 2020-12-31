@@ -79,15 +79,6 @@ case ${OSTYPE} in
     ;;
 esac
 
-function my_edit_func() {
-    if [[ "${RBUFFER:0:1}" != " " ]]; then
-        BUFFER="${LBUFFER} ${RBUFFER}"
-    fi
-    zle expand-or-complete
-    zle redisplay
-}
-zle -N my_edit_func
-bindkey "tab" my_edit_func
 
 function gadd() {
     local selected
