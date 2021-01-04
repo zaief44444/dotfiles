@@ -40,7 +40,8 @@ case ${OSTYPE} in
   darwin*)
     export PATH=/usr/local/opt/llvm/bin:$PATH
     export GOPATH=$HOME/go
-    export PATH=$GOPATH/bin:$PATH
+    export GOBIN=$GOPATH/bin
+    export PATH=$GOBIN:$PATH
     GO111MODULE=on
     ;;
   linux*)
