@@ -103,6 +103,8 @@ nnoremap X "_X
 " 表示行単位で移動する
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " コマンドラインでカーソル移動
 cnoremap <C-f> <Right>
