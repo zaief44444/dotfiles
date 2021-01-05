@@ -45,9 +45,10 @@ case ${OSTYPE} in
     GO111MODULE=on
     ;;
   linux*)
-    export PATH=$PATH:/usr/local/gocode/bin/
+    export PATH=$HOME/.local/bin
     export GOPATH=/usr/local/gocode/
-    export GOBIN=/usr/local/gocode/bin
+    export GOBIN=$GOPATH/bin
+    export PATH=$PATH:$GOBIN
     ;;
 esac
 
